@@ -4,16 +4,16 @@ import 'package:nexora_ui_kit/nexora_ui_kit.dart';
 import 'package:window_manager/window_manager.dart';
 
 void main() {
-  testWidgets('renders brand and subtitle', (tester) async {
+  testWidgets('renders application name in uppercase', (tester) async {
     await tester.pumpWidget(
       const MaterialApp(
         home: Scaffold(
-          body: NexoraWindowHeader(subtitle: 'HARMONY'),
+          body: NexoraWindowHeader(subtitle: 'Harmony'),
         ),
       ),
     );
-    expect(find.text('NEXORA'), findsOneWidget);
     expect(find.text('HARMONY'), findsOneWidget);
+    expect(find.text('NEXORA'), findsNothing);
     expect(find.byType(DragToMoveArea), findsOneWidget);
   });
 
@@ -35,7 +35,7 @@ void main() {
       MaterialApp(
         home: Scaffold(
           body: NexoraWindowHeader(
-            subtitle: 'SUITE',
+            subtitle: 'PHOTOS',
             showWindowControls: true,
             onMinimize: () => minimized = true,
             onClose: () => closed = true,

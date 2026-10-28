@@ -5,7 +5,7 @@ import '../theme/nexora_colors.dart';
 
 /// Master top title bar shared by every Nexora desktop application.
 ///
-/// Renders the NEXORA brand mark, a thin vertical divider and a dynamic
+/// Renders the dynamic application name (e.g. HARMONY, SUITE, PHOTOS) using
 /// application subtitle on the left, plus the native window controls on the
 /// right. The body of the bar is wrapped in a [DragToMoveArea] so the window
 /// can be moved by dragging it.
@@ -180,29 +180,13 @@ class _NexoraWindowHeaderState extends State<NexoraWindowHeader>
             const SizedBox(width: 10),
           ],
           Text(
-            'NEXORA',
+            widget.resolvedSubtitle.toUpperCase(),
             style: const TextStyle(
               fontFamily: 'Gliker',
               fontWeight: FontWeight.w700,
               fontSize: 22,
               letterSpacing: 1.2,
               color: NexoraColors.foreground,
-            ),
-          ),
-          const SizedBox(width: 10),
-          Container(
-            width: 1,
-            height: 18,
-            color: NexoraColors.border,
-          ),
-          const SizedBox(width: 10),
-          Text(
-            widget.resolvedSubtitle,
-            style: const TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w500,
-              letterSpacing: 2.0,
-              color: NexoraColors.mutedStrong,
             ),
           ),
         ],
