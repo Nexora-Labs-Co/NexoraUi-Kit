@@ -1,64 +1,137 @@
-# NexoraUi-Kit
+<p align="center">
+  <a href="https://nexora.dev">
+    <img src="assets/Uikit-Github.svg" alt="NexoraTemplate Preview" style="border-radius: 20px;" width="100%" />
+  </a>
+</p>
 
-Shared Flutter UI kit for the Nexora suite. Provides the standard window chrome and
-common bars used across Nexora Suite, Harmony and the rest of the ecosystem.
+<p align="center">
+  <h1 align="center">NexoraUi-Kit</h1>
+  <p align="center"><strong>Plantilla base y estándar de arquitectura para nuevos repositorios de Nexora</strong></p>
+  <p align="center">Acelera el desarrollo inicial manteniendo la cohesión, calidad y convenciones de diseño de la organización.</p>
+</p>
 
-## Components
+<p align="center">
+  <img alt="PolyForm Noncommercial 1.0.0" src="https://img.shields.io/badge/License-PolyForm--Noncommercial--1.0.0-blue?style=flat-square" />
+  <img alt="Status: Plantilla" src="https://img.shields.io/badge/Status-Plantilla-22C55E?style=flat-square" />
+  <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-brightgreen?style=flat-square" />
+  <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" />
+</p>
 
-### `NexoraWindowHeader`
-Master top title bar. Shows the current application name (e.g. `HARMONY`,
-`SUITE`, `PHOTOS`) in the *Gliker* typeface, framed by full-height vertical
-dividers, plus the native window controls (minimize, maximize/restore, close).
-The body is wrapped in a `DragToMoveArea` so the window can be moved by dragging.
+---
 
-```dart
-const NexoraWindowHeader(subtitle: 'HARMONY')
+## Tabla de Contenidos
+
+- [Estado del proyecto](#estado-del-proyecto)
+- [Acerca de](#acerca-de)
+- [Características principales](#características-principales)
+- [Tecnologías y Stack](#tecnologías-y-stack)
+- [Requisitos previos](#requisitos-previos)
+- [Instalación y Configuración](#instalación-y-configuración)
+- [Uso](#uso)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Hoja de ruta](#hoja-de-ruta)
+- [Contribuir](#contribuir)
+- [Seguridad](#seguridad)
+- [Licencia](#licencia)
+
+---
+
+## Estado del proyecto
+
+> **Estado actual:** Activo / En uso como plantilla oficial de Nexora.
+
+## Acerca de
+
+**NexoraUi-Kit** es el kit de interfaz de usuario compartido del ecosistema Nexora. Proporciona los componentes estándar de la ventana (`NexoraWindowHeader`, `NexoraActionBar`, `NexoraFooterBar`) y la paleta monocromática común (`NexoraColors`, `NexoraTheme`) para mantener la cohesión visual entre Nexora Suite, Harmony y el resto de aplicaciones.
+
+## Características principales
+
+- **Componentes de ventana compartidos:** `NexoraWindowHeader`, `NexoraActionBar`, `NexoraFooterBar`.
+- **Paleta monocromática unificada:** `NexoraColors` y `NexoraTheme` para toda la suite.
+- **Estandarización inmediata:** Incluye documentación base (`CONTRIBUTING.md`, `SECURITY.md`, `CHANGELOG.md`).
+- **Convenciones preconfiguradas:** Alineado con los flujos de trabajo y buenas prácticas de Nexora.
+
+## Tecnologías y Stack
+
+- `Flutter / Dart`
+- `window_manager` para el control nativo de la ventana
+- `font_awesome_flutter` para iconografía consistente
+
+## Requisitos previos
+
+Antes de comenzar, asegúrate de contar con lo siguiente en tu entorno de desarrollo:
+
+- `Flutter SDK (>=3.24.0)`
+- `Dart SDK (^3.13.7)`
+
+## Instalación
+
+Clona este repositorio y configura el entorno inicial ejecutando los siguientes comandos:
+
+```bash
+# 1. Clona el repositorio
+git clone [https://github.com/tu-organizacion/NexoraTemplate.git](https://github.com/tu-organizacion/NexoraTemplate.git) mi-nuevo-proyecto
+
+# 2. Entra al directorio
+cd mi-nuevo-proyecto
+
+# 3. Instala las dependencias
+flutter pub get
 ```
 
-### `NexoraActionBar`
-Horizontal action bar split into three independent sections (`left`, `center`,
-`right`) with the standard monochrome styling.
+## Uso
 
-```dart
-NexoraActionBar(
-  left: ...,
-  center: ...,
-  right: ...,
-)
-```
-
-### `NexoraFooterBar`
-Compact footer bar with a thin top divider and independently configurable left
-and right content.
-
-```dart
-NexoraFooterBar(
-  left: Text('v26.10.27+1'),
-  right: Row(...),
-)
-```
-
-### `NexoraColors` / `NexoraTheme`
-Strictly monochrome palette and dark theme shared by every Nexora application.
-
-## Usage
-
-Add the dependency:
-
-```yaml
-dependencies:
-  nexora_ui_kit:
-    path: ../NexoraUi-Kit
-```
-
-Import:
+Instrucciones rápidas para integrar el kit en una aplicación:
 
 ```dart
 import 'package:nexora_ui_kit/nexora_ui_kit.dart';
+
+// En el árbol de widgets:
+const NexoraWindowHeader(subtitle: 'HARMONY')
 ```
 
-## Notes
+## Estructura del proyecto
 
-- Windowed desktop apps should hide the native title bar via `window_manager`
-  (`TitleBarStyle.hidden`) and set a transparent background so the rounded
-  corners render cleanly.
+```text
+./
+├── lib/
+│   ├── nexora_ui_kit.dart # Barrel de exportación
+│   ├── src/
+│   │   ├── theme/        # NexoraColors y NexoraTheme
+│   │   └── widgets/      # NexoraWindowHeader, NexoraActionBar, NexoraFooterBar
+│   └── ...
+├── test/                 # Pruebas de widgets
+├── assets/fonts/         # Tipografía Gliker
+├── pubspec.yaml          # Dependencias del paquete
+├── CONTRIBUTING.md       # Guía para contribuidores
+├── SECURITY.md           # Política de seguridad y vulnerabilidades
+├── CHANGELOG.md          # Historial de cambios
+└── README.md             # Documentación principal
+
+```
+
+## Hoja de ruta
+
+- [ ] Completar la configuración inicial del stack tecnológico (`{{TODO}}`).
+- [ ] Implementar la primera versión estable (`v1.0.0`).
+- [ ] Configurar pipelines de CI/CD automatizados.
+
+## Contribuir
+
+Las contribuciones son bienvenidas. Por favor, lee el archivo [CONTRIBUTING.md](CONTRIBUTING.md) para conocer los detalles sobre nuestro código de conducta y el proceso para enviar pull requests.
+
+## Seguridad
+
+Si descubres alguna vulnerabilidad de seguridad, por favor consulta nuestra política en [SECURITY.md](SECURITY.md) para saber cómo reportarla de forma responsable.
+
+## Licencia
+
+Este proyecto se distribuye bajo los términos de la licencia **PolyForm Noncommercial 1.0.0** (consulta el archivo [LICENSE](LICENSE) para más detalles, SPDX: `PolyForm-Noncommercial-1.0.0`).
+
+> **Nota de marca:** _Nexora_ es titular de todos los derechos de marca. El nombre, la identidad visual y los logotipos de Nexora no pueden ser utilizados ni redistribuidos sin autorización previa por escrito.
+
+---
+
+<p align="center">
+  Un proyecto desarrollado por el equipo de <strong>Nexora</strong>.
+</p>
