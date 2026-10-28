@@ -1,11 +1,11 @@
 <p align="center">
   <a href="https://nexora.dev">
-    <img src="assets/Template-Github.svg" alt="NexoraTemplate Preview" style="border-radius: 20px;" width="100%" />
+    <img src="assets/Uikit-Github.svg" alt="NexoraTemplate Preview" style="border-radius: 20px;" width="100%" />
   </a>
 </p>
 
 <p align="center">
-  <h1 align="center">NexoraTemplate</h1>
+  <h1 align="center">NexoraUi-Kit</h1>
   <p align="center"><strong>Plantilla base y estándar de arquitectura para nuevos repositorios de Nexora</strong></p>
   <p align="center">Acelera el desarrollo inicial manteniendo la cohesión, calidad y convenciones de diseño de la organización.</p>
 </p>
