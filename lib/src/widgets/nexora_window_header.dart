@@ -208,20 +208,6 @@ class _NexoraWindowHeaderState extends State<NexoraWindowHeader>
             height: widget.height,
             color: NexoraColors.border,
           ),
-          if (widget.resolvedVersion != null &&
-              widget.resolvedVersion!.trim().isNotEmpty) ...[
-            const SizedBox(width: 12),
-            Text(
-              widget.resolvedVersion!,
-              style: const TextStyle(
-                fontFamily: 'monospace',
-                fontSize: 11,
-                fontWeight: FontWeight.w400,
-                letterSpacing: 0.5,
-                color: NexoraColors.muted,
-              ),
-            ),
-          ],
         ],
       ),
     );
@@ -247,6 +233,12 @@ class _NexoraWindowHeaderState extends State<NexoraWindowHeader>
         children: [
           Expanded(child: left),
           if (widget.trailing != null) widget.trailing!,
+          Container(
+            width: 1,
+            height: widget.height,
+            color: NexoraColors.border,
+          ),
+          const SizedBox(width: 6),
           if (widget.showWindowControls) ...[
             WindowCaptionButton.minimize(
               brightness: Brightness.dark,
