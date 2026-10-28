@@ -6,12 +6,12 @@
 
 <p align="center">
   <h1 align="center">NexoraUi-Kit</h1>
-  <p align="center"><strong>Plantilla base y estándar de arquitectura para nuevos repositorios de Nexora</strong></p>
+  <p align="center"><strong>Kit de componentes de interfaz de usuario para la suite Nexora</strong></p>
   <p align="center">Acelera el desarrollo inicial manteniendo la cohesión, calidad y convenciones de diseño de la organización.</p>
 </p>
 
 <p align="center">
-  <img alt="PolyForm Noncommercial 1.0.0" src="https://img.shields.io/badge/License-PolyForm--Noncommercial--1.0.0-blue?style=flat-square" />
+  <img alt="MIT License" src="https://img.shields.io/badge/License-MIT-green?style=flat-square" />
   <img alt="Status: Plantilla" src="https://img.shields.io/badge/Status-Plantilla-22C55E?style=flat-square" />
   <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-brightgreen?style=flat-square" />
   <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square" />
@@ -126,7 +126,7 @@ Si descubres alguna vulnerabilidad de seguridad, por favor consulta nuestra pol�
 
 ## Licencia
 
-Este proyecto se distribuye bajo los términos de la licencia **PolyForm Noncommercial 1.0.0** (consulta el archivo [LICENSE](LICENSE) para más detalles, SPDX: `PolyForm-Noncommercial-1.0.0`).
+Este proyecto se distribuye bajo los términos de la licencia **MIT** (consulta el archivo [LICENSE](LICENSE) para más detalles, SPDX: `MIT`).
 
 > **Nota de marca:** _Nexora_ es titular de todos los derechos de marca. El nombre, la identidad visual y los logotipos de Nexora no pueden ser utilizados ni redistribuidos sin autorización previa por escrito.
 
