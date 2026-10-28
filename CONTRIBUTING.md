@@ -50,11 +50,11 @@ Para configurar el entorno de trabajo localmente, ejecuta los siguientes comando
 
 ```bash
 # Instalar dependencias
-{{TODO: comando de instalación, ej. npm install}}
+flutter pub get
 
-# Iniciar servidor de desarrollo
-{{TODO: comando de desarrollo, ej. npm run dev}}
+# Ejecutar el análisis estático
+flutter analyze
 
 # Ejecutar la suite de pruebas
-{{TODO: comando de pruebas, ej. npm test}}
+flutter test
 ```

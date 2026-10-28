@@ -23,8 +23,8 @@ Las versiones del proyecto que actualmente reciben actualizaciones de seguridad 
 
 | Versión                 | Soportada |
 | ----------------------- | --------- |
-| `{{TODO: e.g., 1.x.x}}` | [x] Sí    |
-| `{{TODO: e.g., 0.x.x}}` | [ ] No    |
+| `0.1.x` | [x] Sí    |
+| `< 0.1` | [ ] No    |
 
 _(Actualiza esta tabla conforme el proyecto evolucione y se emitan releases)._
 

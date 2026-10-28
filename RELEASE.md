@@ -1,4 +1,4 @@
-## [Proyecto] vX.Y.Z
+## [NexoraUi-Kit] v0.1.0
 
 ### Novedades
 

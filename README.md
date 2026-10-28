@@ -112,7 +112,7 @@ const NexoraWindowHeader(subtitle: 'HARMONY')
 
 ## Hoja de ruta
 
-- [ ] Completar la configuración inicial del stack tecnológico (`{{TODO}}`).
+- [x] Configuración inicial del stack Flutter completada.
 - [ ] Implementar la primera versión estable (`v1.0.0`).
 - [ ] Configurar pipelines de CI/CD automatizados.
 
