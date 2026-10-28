@@ -3,6 +3,13 @@ description: "Shared UI kit for Nexora suite applications."
 version: 0.1.0
 publish_to: 'none'
 
+topics:
+  - nexora
+  - ui-kit
+  - flutter
+  - desktop
+  - window
+
 environment:
   sdk: ^3.13.7
   flutter: ">=3.24.0"
