@@ -26,6 +26,9 @@ El formato de este registro está basado en [Keep a Changelog](https://keepachan
 
 ### Añadido
 
+- Componentes compartidos: `NexoraWindowHeader`, `NexoraActionBar`, `NexoraFooterBar`.
+- Paleta y tema monocromático compartidos (`NexoraColors`, `NexoraTheme`).
+
 - Documentación base estandarizada de la plantilla: `README.md`, `CONTRIBUTING.md`, `SECURITY.md` y `CHANGELOG.md`.
 - Estructura mínima, reglas de gobernanza y convenciones iniciales de arquitectura de Nexora.
 - Encabezados de imagen unificados con estilo de bordes redondeados para toda la suite de documentación.
