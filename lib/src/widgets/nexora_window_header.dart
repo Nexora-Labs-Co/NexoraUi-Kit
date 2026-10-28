@@ -18,6 +18,10 @@ class NexoraWindowHeader extends StatefulWidget {
     this.appTitle,
     this.applicationName,
     this.label,
+    this.version,
+    this.appVersion,
+    this.versionLabel,
+    this.buildVersion,
     this.height = 56,
     this.backgroundColor,
     this.showDivider = true,
@@ -39,6 +43,12 @@ class NexoraWindowHeader extends StatefulWidget {
   final String? appTitle;
   final String? applicationName;
   final String? label;
+
+  /// Dynamic application version indicator (e.g. `v26.10.27+4`).
+  final String? version;
+  final String? appVersion;
+  final String? versionLabel;
+  final String? buildVersion;
 
   final double height;
   final Color? backgroundColor;
@@ -66,6 +76,9 @@ class NexoraWindowHeader extends StatefulWidget {
       applicationName ??
       label ??
       'SUITE';
+
+  String? get resolvedVersion =>
+      version ?? appVersion ?? versionLabel ?? buildVersion;
 
   @override
   State<NexoraWindowHeader> createState() => _NexoraWindowHeaderState();
@@ -189,6 +202,26 @@ class _NexoraWindowHeaderState extends State<NexoraWindowHeader>
               color: NexoraColors.foreground,
             ),
           ),
+          const SizedBox(width: 12),
+          Container(
+            width: 1,
+            height: widget.height,
+            color: NexoraColors.border,
+          ),
+          if (widget.resolvedVersion != null &&
+              widget.resolvedVersion!.trim().isNotEmpty) ...[
+            const SizedBox(width: 12),
+            Text(
+              widget.resolvedVersion!,
+              style: const TextStyle(
+                fontFamily: 'monospace',
+                fontSize: 11,
+                fontWeight: FontWeight.w400,
+                letterSpacing: 0.5,
+                color: NexoraColors.muted,
+              ),
+            ),
+          ],
         ],
       ),
     );
@@ -253,6 +286,10 @@ class NexoraScaffold extends StatelessWidget {
     this.appTitle,
     this.applicationName,
     this.label,
+    this.version,
+    this.appVersion,
+    this.versionLabel,
+    this.buildVersion,
     this.headerHeight = 56,
     this.backgroundColor,
     this.draggable = true,
@@ -272,6 +309,12 @@ class NexoraScaffold extends StatelessWidget {
   final String? appTitle;
   final String? applicationName;
   final String? label;
+
+  /// Dynamic application version indicator (e.g. `v26.10.27+4`).
+  final String? version;
+  final String? appVersion;
+  final String? versionLabel;
+  final String? buildVersion;
   final double headerHeight;
   final Color? backgroundColor;
   final bool draggable;
@@ -300,6 +343,10 @@ class NexoraScaffold extends StatelessWidget {
         children: [
           NexoraWindowHeader(
             subtitle: _subtitle,
+            version: version,
+            appVersion: appVersion,
+            versionLabel: versionLabel,
+            buildVersion: buildVersion,
             height: headerHeight,
             backgroundColor: backgroundColor,
             draggable: draggable,
