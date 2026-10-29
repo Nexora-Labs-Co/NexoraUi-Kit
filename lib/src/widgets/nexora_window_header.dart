@@ -3,6 +3,8 @@ import 'package:window_manager/window_manager.dart';
 
 import '../theme/nexora_colors.dart';
 
+import 'nexora_sidebar.dart';
+
 /// Master top title bar shared by every Nexora desktop application.
 ///
 /// Renders the dynamic application name (e.g. HARMONY, SUITE, PHOTOS) using
@@ -267,11 +269,12 @@ class _NexoraWindowHeaderState extends State<NexoraWindowHeader>
 }
 
 /// Convenience scaffold that places a [NexoraWindowHeader] at the top of the
-/// window body.
+/// window body and optionally renders a [NexoraSidebar] on the left.
 class NexoraScaffold extends StatelessWidget {
   const NexoraScaffold({
     super.key,
-    required this.body,
+    this.body,
+    this.child,
     this.subtitle,
     this.appName,
     this.title,
@@ -292,9 +295,17 @@ class NexoraScaffold extends StatelessWidget {
     this.onClose,
     this.isMaximized,
     this.trailing,
+    this.sidebar,
+    this.sidebarWidth,
+    this.sidebarBackgroundColor,
+    this.sidebarCollapsed,
+    this.sidebarScrollable = true,
+    this.showSidebarBorder = true,
+    this.sidebarCollapsedWidth = 0,
   });
 
-  final Widget body;
+  final Widget? body;
+  final Widget? child;
   final String? subtitle;
   final String? appName;
   final String? title;
@@ -318,6 +329,16 @@ class NexoraScaffold extends StatelessWidget {
   final bool? isMaximized;
   final Widget? trailing;
 
+  /// Optional left sidebar content. When provided (or when [sidebarWidth] is
+  /// set) a [NexoraSidebar] is rendered to the left of the body.
+  final Widget? sidebar;
+  final double? sidebarWidth;
+  final Color? sidebarBackgroundColor;
+  final bool? sidebarCollapsed;
+  final bool sidebarScrollable;
+  final bool showSidebarBorder;
+  final double sidebarCollapsedWidth;
+
   String get _subtitle =>
       subtitle ??
       appName ??
@@ -327,30 +348,68 @@ class NexoraScaffold extends StatelessWidget {
       label ??
       'SUITE';
 
+  Widget get _body => body ?? child ?? const SizedBox.shrink();
+
+  Widget get _sidebar {
+    if (sidebar is NexoraSidebar) return sidebar!;
+    return NexoraSidebar(
+      width: sidebarWidth ?? 240,
+      collapsedWidth: sidebarCollapsedWidth,
+      collapsed: sidebarCollapsed,
+      scrollable: sidebarScrollable,
+      showBorder: showSidebarBorder,
+      backgroundColor: sidebarBackgroundColor,
+      child: sidebar,
+    );
+  }
+
+  bool get _hasSidebar => sidebar != null || sidebarWidth != null;
+
   @override
   Widget build(BuildContext context) {
+    final header = NexoraWindowHeader(
+      subtitle: _subtitle,
+      version: version,
+      appVersion: appVersion,
+      versionLabel: versionLabel,
+      buildVersion: buildVersion,
+      height: headerHeight,
+      backgroundColor: backgroundColor,
+      draggable: draggable,
+      showWindowControls: showWindowControls,
+      onMinimize: onMinimize,
+      onMaximize: onMaximize,
+      onRestore: onRestore,
+      onClose: onClose,
+      isMaximized: isMaximized,
+      trailing: trailing,
+    );
+
+    if (!_hasSidebar) {
+      return Scaffold(
+        backgroundColor: NexoraColors.background,
+        body: Column(
+          children: [
+            header,
+            Expanded(child: _body),
+          ],
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: NexoraColors.background,
-      body: Column(
+      body: Row(
         children: [
-          NexoraWindowHeader(
-            subtitle: _subtitle,
-            version: version,
-            appVersion: appVersion,
-            versionLabel: versionLabel,
-            buildVersion: buildVersion,
-            height: headerHeight,
-            backgroundColor: backgroundColor,
-            draggable: draggable,
-            showWindowControls: showWindowControls,
-            onMinimize: onMinimize,
-            onMaximize: onMaximize,
-            onRestore: onRestore,
-            onClose: onClose,
-            isMaximized: isMaximized,
-            trailing: trailing,
+          _sidebar,
+          Expanded(
+            child: Column(
+              children: [
+                header,
+                Expanded(child: _body),
+              ],
+            ),
           ),
-          Expanded(child: body),
         ],
       ),
     );

@@ -7,3 +7,5 @@ export 'src/widgets/nexora_window_header.dart';
 export 'src/widgets/nexora_footer_bar.dart';
 
 export 'src/widgets/nexora_action_bar.dart';
+
+export 'src/widgets/nexora_sidebar.dart';
