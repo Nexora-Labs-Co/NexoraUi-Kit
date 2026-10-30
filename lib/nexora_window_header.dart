@@ -1,1 +1,1 @@
-export '../src/widgets/nexora_window_header.dart';
+export 'src/desktop/nexora_window_header.dart';

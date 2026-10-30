@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../theme/nexora_colors.dart';
+import '../tokens/nexora_colors.dart';
 
 /// Reusable, generic sidebar container for Nexora desktop layouts.
 ///

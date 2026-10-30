@@ -1,1 +1,1 @@
-export '../src/widgets/nexora_action_bar.dart';
+export '../src/shared/nexora_action_bar.dart';

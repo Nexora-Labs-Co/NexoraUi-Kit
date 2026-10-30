@@ -17,8 +17,8 @@ Contributing order: `flutter analyze` then `flutter test`. No separate typecheck
 ## Entry points / ownership
 
 - Canonical barrel: `lib/nexora_ui_kit.dart` (exports `src/...`).
-- Real implementations live in `lib/src/{theme,widgets}/`. Top-level `lib/*.dart`, `lib/theme/`, and `lib/widgets/` are re-export shims — edit `src/`, not the shims.
-- Public API: `NexoraColors`, `NexoraTheme`, `NexoraWindowHeader`, `NexoraScaffold` (also `NexoraTitleBar` alias), `NexoraActionBar`, `NexoraFooterBar`, `NexoraSidebar`, `NexoraSidebarLayout`.
+- Real implementations live in `lib/src/{tokens,desktop,mobile,shared}/`. Top-level `lib/*.dart`, `lib/theme/`, and `lib/widgets/` are re-export shims — edit `src/`, not the shims.
+- Public API: tokens (`NexoraColors`/`NxColors`, `NexoraTheme`, `NexoraTypography`/`NxTypography`); desktop (`NexoraWindowHeader`, `NexoraScaffold`, `NexoraSidebar`, `NexoraSidebarLayout`, `NxPlaylistHeader`); shared (`NexoraActionBar`, `NexoraFooterBar`, `NxQuickAccessCard`, `NxMediaCard`, `NxButton`, `NxIconButton`, `NxSlider`); mobile (`NxMobileHeader`, `NxMobileNavBar`, `NxCollapsiblePlayerSheet`).
 
 ## Dependencies / toolchain
 

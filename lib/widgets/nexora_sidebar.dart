@@ -1,1 +1,1 @@
-export '../src/widgets/nexora_sidebar.dart';
+export '../src/desktop/nexora_sidebar.dart';

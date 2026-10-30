@@ -1,1 +1,1 @@
-export '../src/theme/nexora_colors.dart';
+export '../src/tokens/nexora_colors.dart';

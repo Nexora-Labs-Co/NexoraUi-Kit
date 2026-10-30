@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 
-import '../theme/nexora_colors.dart';
+import '../tokens/nexora_colors.dart';
 
 import 'nexora_sidebar.dart';
 
